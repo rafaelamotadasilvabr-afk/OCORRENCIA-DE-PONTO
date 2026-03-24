@@ -50,16 +50,16 @@
         min-height:297mm;
         margin:0 auto 20px auto;
         background:#fff;
-        padding:24mm 16mm 20mm 16mm;
+        padding:22mm 14mm 18mm 14mm;
         border:1px solid #cfcfcf;
         position:relative;
     }
 
     .topo{
         display:grid;
-        grid-template-columns:220px 1fr 40px;
+        grid-template-columns:190px 1fr 30px;
         align-items:center;
-        margin-bottom:24px;
+        margin-bottom:18px;
     }
 
     .logo-box{
@@ -67,37 +67,45 @@
         align-items:center;
         justify-content:flex-start;
         overflow:visible;
+        height:72px;
     }
 
     .logo-box img{
-        height:70px;
+        max-height:72px;
         width:auto;
-        transform:scale(1.8);
+        transform:scale(2.1);
         transform-origin:left center;
         display:block;
     }
 
     .titulo{
         text-align:center;
-        font-size:20px;
+        font-size:18px;
         font-weight:700;
         text-decoration:underline;
         line-height:1.2;
     }
 
     .topo-espaco{
-        width:40px;
+        width:30px;
     }
 
-    .secao{
-        margin-top:16px;
+    .bloco{
+        border:1px solid #000;
+        padding:10px 10px 8px 10px;
+        margin-top:12px;
+        position:relative;
     }
 
-    .secao-titulo{
-        font-size:15px;
+    .bloco-titulo{
+        position:absolute;
+        top:-10px;
+        left:10px;
+        background:#fff;
+        padding:0 6px;
+        font-size:14px;
         font-weight:700;
-        text-decoration:underline;
-        margin-bottom:8px;
+        text-transform:uppercase;
     }
 
     .linha{
@@ -116,7 +124,7 @@
     }
 
     .campo label{
-        font-size:14px;
+        font-size:13px;
         white-space:nowrap;
     }
 
@@ -128,9 +136,9 @@
         border-bottom:1px solid #000;
         outline:none;
         background:transparent;
-        height:28px;
-        font-size:14px;
-        padding:2px 4px;
+        height:24px;
+        font-size:13px;
+        padding:1px 3px;
         border-radius:0;
         color:#000;
     }
@@ -143,84 +151,85 @@
     }
 
     .w-razao{
-        width:520px;
+        width:540px;
         max-width:100%;
     }
 
     .w-endereco{
-        width:720px;
+        width:650px;
         max-width:100%;
     }
 
     .w-nome{
-        width:520px;
+        width:430px;
         max-width:100%;
     }
 
     .w-cargo{
-        width:220px;
+        width:210px;
         max-width:100%;
     }
 
     .w-cpf{
-        width:190px;
+        width:170px;
         max-width:100%;
     }
 
     .w-data{
-        width:150px;
+        width:140px;
     }
 
     .linha-texto{
         display:flex;
         align-items:flex-end;
         gap:8px;
-        margin-bottom:12px;
+        margin-top:14px;
+        margin-bottom:10px;
         flex-wrap:wrap;
     }
 
     .linha-texto label{
-        font-size:14px;
+        font-size:13px;
         white-space:nowrap;
     }
 
     .linha-texto input{
         flex:1;
-        min-width:260px;
+        min-width:240px;
         border:none;
         border-bottom:1px solid #000;
         outline:none;
         background:transparent;
-        font-size:14px;
-        padding:2px 4px;
-        min-height:28px;
+        font-size:13px;
+        padding:1px 3px;
+        min-height:24px;
         border-radius:0;
         color:#000;
     }
 
     .pergunta{
-        font-size:14px;
-        margin:18px 0 12px 0;
+        font-size:13px;
+        margin:16px 0 10px 0;
     }
 
     .opcoes{
         display:flex;
         flex-wrap:wrap;
-        gap:24px;
-        margin-bottom:20px;
-        font-size:14px;
+        gap:22px;
+        margin-bottom:18px;
+        font-size:13px;
     }
 
     .opcoes label{
         display:flex;
         align-items:center;
-        gap:6px;
+        gap:5px;
         white-space:nowrap;
         cursor:pointer;
     }
 
     .assinaturas{
-        margin-top:26px;
+        margin-top:22px;
     }
 
     .assinatura-linha{
@@ -228,7 +237,7 @@
         align-items:flex-end;
         gap:10px;
         margin-bottom:16px;
-        font-size:14px;
+        font-size:13px;
         flex-wrap:wrap;
     }
 
@@ -238,15 +247,15 @@
 
     .traco{
         border-bottom:1px solid #000;
-        height:22px;
+        height:18px;
         flex:1;
-        min-width:180px;
+        min-width:160px;
     }
 
     .dupla{
         display:grid;
         grid-template-columns:1fr 1fr;
-        gap:18px;
+        gap:14px;
     }
 
     .button{
@@ -314,10 +323,10 @@
             <div class="topo-espaco"></div>
         </div>
 
-        <div class="secao">
-            <div class="secao-titulo">Dados do Empregador</div>
+        <div class="bloco">
+            <div class="bloco-titulo">Dados do Empregador</div>
 
-            <div class="linha">
+            <div class="linha" style="margin-top:8px;">
                 <div class="campo">
                     <label>Razão Social:</label>
                     <select class="w-razao">
@@ -338,10 +347,10 @@
             </div>
         </div>
 
-        <div class="secao">
-            <div class="secao-titulo">Dados do Trabalhador</div>
+        <div class="bloco">
+            <div class="bloco-titulo">Dados do Trabalhador</div>
 
-            <div class="linha">
+            <div class="linha" style="margin-top:8px;">
                 <div class="campo">
                     <label>NOME DO COLABORADOR:</label>
                     <select class="w-nome" onchange="preencherDados(this, 'ficha1')">
@@ -422,10 +431,10 @@
             <div class="topo-espaco"></div>
         </div>
 
-        <div class="secao">
-            <div class="secao-titulo">Dados do Empregador</div>
+        <div class="bloco">
+            <div class="bloco-titulo">Dados do Empregador</div>
 
-            <div class="linha">
+            <div class="linha" style="margin-top:8px;">
                 <div class="campo">
                     <label>Razão Social:</label>
                     <select class="w-razao">
@@ -446,10 +455,10 @@
             </div>
         </div>
 
-        <div class="secao">
-            <div class="secao-titulo">Dados do Trabalhador</div>
+        <div class="bloco">
+            <div class="bloco-titulo">Dados do Trabalhador</div>
 
-            <div class="linha">
+            <div class="linha" style="margin-top:8px;">
                 <div class="campo">
                     <label>NOME DO COLABORADOR:</label>
                     <select class="w-nome" onchange="preencherDados(this, 'ficha2')">
