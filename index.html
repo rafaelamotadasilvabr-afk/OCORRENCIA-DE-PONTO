@@ -50,14 +50,14 @@
         min-height:297mm;
         margin:0 auto 20px auto;
         background:#fff;
-        padding:28mm 16mm 20mm 16mm;
+        padding:24mm 16mm 20mm 16mm;
         border:1px solid #cfcfcf;
         position:relative;
     }
 
     .topo{
         display:grid;
-        grid-template-columns:90px 1fr 90px;
+        grid-template-columns:120px 1fr 120px;
         align-items:center;
         margin-bottom:22px;
     }
@@ -69,7 +69,7 @@
     }
 
     .logo-box img{
-        width:72px;
+        width:95px;
         height:auto;
         object-fit:contain;
     }
@@ -83,7 +83,7 @@
     }
 
     .topo-espaco{
-        width:90px;
+        width:120px;
     }
 
     .secao{
@@ -186,8 +186,7 @@
         white-space:nowrap;
     }
 
-    .linha-texto input,
-    .linha-texto textarea{
+    .linha-texto input{
         flex:1;
         border:none;
         border-bottom:1px solid #000;
@@ -195,7 +194,6 @@
         background:transparent;
         font-size:14px;
         padding:2px 4px;
-        resize:none;
         min-height:28px;
         border-radius:0;
     }
@@ -218,6 +216,7 @@
         align-items:center;
         gap:6px;
         white-space:nowrap;
+        cursor:pointer;
     }
 
     .assinaturas{
@@ -321,12 +320,12 @@
             <div class="linha">
                 <div class="campo">
                     <label>Razão Social:</label>
-                    <select class="w-razao">
+                    <select class="w-razao" onchange="preencherEmpresa(this, 'ficha1')">
                         <option value="">Selecionar empregador</option>
-                        <option>EMPRESA 1 - CNPJ A DEFINIR</option>
-                        <option>EMPRESA 2 - CNPJ A DEFINIR</option>
-                        <option>EMPRESA 3 - CNPJ A DEFINIR</option>
-                        <option>EMPRESA 4 - CNPJ A DEFINIR</option>
+                        <option value="GDS">GDS</option>
+                        <option value="EMPRESA 2">EMPRESA 2</option>
+                        <option value="EMPRESA 3">EMPRESA 3</option>
+                        <option value="EMPRESA 4">EMPRESA 4</option>
                     </select>
                 </div>
             </div>
@@ -334,14 +333,14 @@
             <div class="linha">
                 <div class="campo">
                     <label>Endereço:</label>
-                    <input type="text" class="w-endereco">
+                    <input type="text" class="w-endereco endereco" readonly>
                 </div>
             </div>
 
             <div class="linha">
                 <div class="campo">
                     <label>CEP:</label>
-                    <input type="text" class="w-cep">
+                    <input type="text" class="w-cep cep" readonly>
                 </div>
             </div>
         </div>
@@ -364,12 +363,12 @@
             <div class="linha">
                 <div class="campo">
                     <label>CARGO:</label>
-                    <input type="text" class="w-cargo cargo">
+                    <input type="text" class="w-cargo cargo" readonly>
                 </div>
 
                 <div class="campo">
                     <label>CPF:</label>
-                    <input type="text" class="w-cpf cpf">
+                    <input type="text" class="w-cpf cpf" readonly>
                 </div>
             </div>
 
@@ -384,10 +383,10 @@
         <div class="pergunta">Qual registro não foi marcado</div>
 
         <div class="opcoes">
-            <label><input type="checkbox"> Entrada</label>
-            <label><input type="checkbox"> Saída Intervalo</label>
-            <label><input type="checkbox"> Retorno Intervalo</label>
-            <label><input type="checkbox"> Saída</label>
+            <label><input type="radio" name="registro_ficha1" value="Entrada"> Entrada</label>
+            <label><input type="radio" name="registro_ficha1" value="Saída Intervalo"> Saída Intervalo</label>
+            <label><input type="radio" name="registro_ficha1" value="Retorno Intervalo"> Retorno Intervalo</label>
+            <label><input type="radio" name="registro_ficha1" value="Saída"> Saída</label>
         </div>
 
         <div class="linha-texto">
@@ -436,12 +435,12 @@
             <div class="linha">
                 <div class="campo">
                     <label>Razão Social:</label>
-                    <select class="w-razao">
+                    <select class="w-razao" onchange="preencherEmpresa(this, 'ficha2')">
                         <option value="">Selecionar empregador</option>
-                        <option>EMPRESA 1 - CNPJ A DEFINIR</option>
-                        <option>EMPRESA 2 - CNPJ A DEFINIR</option>
-                        <option>EMPRESA 3 - CNPJ A DEFINIR</option>
-                        <option>EMPRESA 4 - CNPJ A DEFINIR</option>
+                        <option value="GDS">GDS</option>
+                        <option value="EMPRESA 2">EMPRESA 2</option>
+                        <option value="EMPRESA 3">EMPRESA 3</option>
+                        <option value="EMPRESA 4">EMPRESA 4</option>
                     </select>
                 </div>
             </div>
@@ -449,14 +448,14 @@
             <div class="linha">
                 <div class="campo">
                     <label>Endereço:</label>
-                    <input type="text" class="w-endereco">
+                    <input type="text" class="w-endereco endereco" readonly>
                 </div>
             </div>
 
             <div class="linha">
                 <div class="campo">
                     <label>CEP:</label>
-                    <input type="text" class="w-cep">
+                    <input type="text" class="w-cep cep" readonly>
                 </div>
             </div>
         </div>
@@ -479,12 +478,12 @@
             <div class="linha">
                 <div class="campo">
                     <label>CARGO:</label>
-                    <input type="text" class="w-cargo cargo">
+                    <input type="text" class="w-cargo cargo" readonly>
                 </div>
 
                 <div class="campo">
                     <label>CPF:</label>
-                    <input type="text" class="w-cpf cpf">
+                    <input type="text" class="w-cpf cpf" readonly>
                 </div>
             </div>
 
@@ -499,10 +498,10 @@
         <div class="pergunta">Qual registro não foi marcado</div>
 
         <div class="opcoes">
-            <label><input type="checkbox"> Entrada</label>
-            <label><input type="checkbox"> Saída Intervalo</label>
-            <label><input type="checkbox"> Retorno Intervalo</label>
-            <label><input type="checkbox"> Saída</label>
+            <label><input type="radio" name="registro_ficha2" value="Entrada"> Entrada</label>
+            <label><input type="radio" name="registro_ficha2" value="Saída Intervalo"> Saída Intervalo</label>
+            <label><input type="radio" name="registro_ficha2" value="Retorno Intervalo"> Retorno Intervalo</label>
+            <label><input type="radio" name="registro_ficha2" value="Saída"> Saída</label>
         </div>
 
         <div class="linha-texto">
@@ -539,6 +538,25 @@
 </div>
 
 <script>
+    const empresas = {
+        "GDS": {
+            endereco: "Rua Teodoro de Beaurepaire, 34, Ipiranga, São Paulo - SP",
+            cep: "04279-030"
+        },
+        "EMPRESA 2": {
+            endereco: "",
+            cep: ""
+        },
+        "EMPRESA 3": {
+            endereco: "",
+            cep: ""
+        },
+        "EMPRESA 4": {
+            endereco: "",
+            cep: ""
+        }
+    };
+
     const trabalhadores = {
         "LEONARDO PEREIRA GARCIA": {
             cpf: "464.629.978-00",
@@ -553,6 +571,21 @@
             cargo: "Analista"
         }
     };
+
+    function preencherEmpresa(select, fichaId){
+        const empresa = select.value;
+        const ficha = document.getElementById(fichaId);
+        const campoEndereco = ficha.querySelector(".endereco");
+        const campoCep = ficha.querySelector(".cep");
+
+        if(empresas[empresa]){
+            campoEndereco.value = empresas[empresa].endereco;
+            campoCep.value = empresas[empresa].cep;
+        }else{
+            campoEndereco.value = "";
+            campoCep.value = "";
+        }
+    }
 
     function preencherDados(select, fichaId){
         const nome = select.value;
