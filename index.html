@@ -57,21 +57,24 @@
 
     .topo{
         display:grid;
-        grid-template-columns:120px 1fr 120px;
+        grid-template-columns:220px 1fr 40px;
         align-items:center;
-        margin-bottom:22px;
+        margin-bottom:24px;
     }
 
     .logo-box{
         display:flex;
-        align-items:flex-start;
+        align-items:center;
         justify-content:flex-start;
+        overflow:visible;
     }
 
     .logo-box img{
-        width:95px;
-        height:auto;
-        object-fit:contain;
+        height:70px;
+        width:auto;
+        transform:scale(1.8);
+        transform-origin:left center;
+        display:block;
     }
 
     .titulo{
@@ -83,7 +86,7 @@
     }
 
     .topo-espaco{
-        width:120px;
+        width:40px;
     }
 
     .secao{
@@ -109,6 +112,7 @@
         display:flex;
         align-items:flex-end;
         gap:6px;
+        flex-wrap:wrap;
     }
 
     .campo label{
@@ -128,6 +132,7 @@
         font-size:14px;
         padding:2px 4px;
         border-radius:0;
+        color:#000;
     }
 
     .campo select{
@@ -145,10 +150,6 @@
     .w-endereco{
         width:720px;
         max-width:100%;
-    }
-
-    .w-cep{
-        width:130px;
     }
 
     .w-nome{
@@ -170,15 +171,12 @@
         width:150px;
     }
 
-    .w-hora{
-        width:180px;
-    }
-
     .linha-texto{
         display:flex;
         align-items:flex-end;
         gap:8px;
         margin-bottom:12px;
+        flex-wrap:wrap;
     }
 
     .linha-texto label{
@@ -188,6 +186,7 @@
 
     .linha-texto input{
         flex:1;
+        min-width:260px;
         border:none;
         border-bottom:1px solid #000;
         outline:none;
@@ -196,6 +195,7 @@
         padding:2px 4px;
         min-height:28px;
         border-radius:0;
+        color:#000;
     }
 
     .pergunta{
@@ -320,12 +320,12 @@
             <div class="linha">
                 <div class="campo">
                     <label>Razão Social:</label>
-                    <select class="w-razao" onchange="preencherEmpresa(this, 'ficha1')">
+                    <select class="w-razao">
                         <option value="">Selecionar empregador</option>
-                        <option value="GDS">GDS</option>
-                        <option value="EMPRESA 2">EMPRESA 2</option>
-                        <option value="EMPRESA 3">EMPRESA 3</option>
-                        <option value="EMPRESA 4">EMPRESA 4</option>
+                        <option>EMPRESA 1 - CNPJ 00.000.000/0000-00</option>
+                        <option>EMPRESA 2 - CNPJ 00.000.000/0000-00</option>
+                        <option>EMPRESA 3 - CNPJ 00.000.000/0000-00</option>
+                        <option>EMPRESA 4 - CNPJ 00.000.000/0000-00</option>
                     </select>
                 </div>
             </div>
@@ -333,14 +333,7 @@
             <div class="linha">
                 <div class="campo">
                     <label>Endereço:</label>
-                    <input type="text" class="w-endereco endereco" readonly>
-                </div>
-            </div>
-
-            <div class="linha">
-                <div class="campo">
-                    <label>CEP:</label>
-                    <input type="text" class="w-cep cep" readonly>
+                    <input type="text" class="w-endereco" value="Rua Teodoro de Beaurepaire, 34, Ipiranga, São Paulo - SP, 04279-030" readonly>
                 </div>
             </div>
         </div>
@@ -435,12 +428,12 @@
             <div class="linha">
                 <div class="campo">
                     <label>Razão Social:</label>
-                    <select class="w-razao" onchange="preencherEmpresa(this, 'ficha2')">
+                    <select class="w-razao">
                         <option value="">Selecionar empregador</option>
-                        <option value="GDS">GDS</option>
-                        <option value="EMPRESA 2">EMPRESA 2</option>
-                        <option value="EMPRESA 3">EMPRESA 3</option>
-                        <option value="EMPRESA 4">EMPRESA 4</option>
+                        <option>EMPRESA 1 - CNPJ 00.000.000/0000-00</option>
+                        <option>EMPRESA 2 - CNPJ 00.000.000/0000-00</option>
+                        <option>EMPRESA 3 - CNPJ 00.000.000/0000-00</option>
+                        <option>EMPRESA 4 - CNPJ 00.000.000/0000-00</option>
                     </select>
                 </div>
             </div>
@@ -448,14 +441,7 @@
             <div class="linha">
                 <div class="campo">
                     <label>Endereço:</label>
-                    <input type="text" class="w-endereco endereco" readonly>
-                </div>
-            </div>
-
-            <div class="linha">
-                <div class="campo">
-                    <label>CEP:</label>
-                    <input type="text" class="w-cep cep" readonly>
+                    <input type="text" class="w-endereco" value="Rua Teodoro de Beaurepaire, 34, Ipiranga, São Paulo - SP, 04279-030" readonly>
                 </div>
             </div>
         </div>
@@ -538,25 +524,6 @@
 </div>
 
 <script>
-    const empresas = {
-        "GDS": {
-            endereco: "Rua Teodoro de Beaurepaire, 34, Ipiranga, São Paulo - SP",
-            cep: "04279-030"
-        },
-        "EMPRESA 2": {
-            endereco: "",
-            cep: ""
-        },
-        "EMPRESA 3": {
-            endereco: "",
-            cep: ""
-        },
-        "EMPRESA 4": {
-            endereco: "",
-            cep: ""
-        }
-    };
-
     const trabalhadores = {
         "LEONARDO PEREIRA GARCIA": {
             cpf: "464.629.978-00",
@@ -571,21 +538,6 @@
             cargo: "Analista"
         }
     };
-
-    function preencherEmpresa(select, fichaId){
-        const empresa = select.value;
-        const ficha = document.getElementById(fichaId);
-        const campoEndereco = ficha.querySelector(".endereco");
-        const campoCep = ficha.querySelector(".cep");
-
-        if(empresas[empresa]){
-            campoEndereco.value = empresas[empresa].endereco;
-            campoCep.value = empresas[empresa].cep;
-        }else{
-            campoEndereco.value = "";
-            campoCep.value = "";
-        }
-    }
 
     function preencherDados(select, fichaId){
         const nome = select.value;
